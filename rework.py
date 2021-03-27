@@ -4,6 +4,8 @@ from discord.ext import commands
 from time import sleep
 import genning, db
 
+with open('.token','r') as file:
+    TOKEN = file.read()
 bot = commands.Bot(command_prefix='$')
 discorddb = db.DB("./db/build.db", "./db/build.sql")
 helpful = "> [$balance](https://lmgtfy.app/?q=money&t=i) - Check your social standing\n> [$top10](https://lmgtfy.app/?q=cave+story+quote&t=i) - See who the richest members of Clang Clang Gang are"
@@ -216,4 +218,4 @@ async def top10(ctx):
     embed.set_footer(text=f"{missingtime} left.")
     await ctx.send(embed=embed)
 
-bot.run('ODIxNDczNjYwODUwMDEyMjAw.YFEO9g.IArUOPAEAyQuK7_nvwkYWUvaKxI')
+bot.run(TOKEN)
